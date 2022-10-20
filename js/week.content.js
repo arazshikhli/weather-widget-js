@@ -120,10 +120,6 @@ ThirdDay.appendChild(tempContainer3);
 ThirdDay.appendChild(dayName3);
 //#endregion
 
-
-
-
-
 //#region 4DayContent
 //#region  Cloud2
 const cloudImageCont4=document.createElement('div');
@@ -146,12 +142,6 @@ tempContainer4.appendChild(temperature4);
 //#endregion
 //#region dayName
 
-// const cityNamefromApi3=weather.list[17].dt_txt;
-// const dayNameParsed3=getDay(weather,17);
-// const dayName3=document.createElement('h3');
-// dayName3.innerHTML=dayNameParsed3;
-
-
 const dayNameParsed4=getDay(weather,25);
 const dayName4=document.createElement('h3');
 dayName4.innerHTML=dayNameParsed4;
@@ -164,10 +154,45 @@ FourthDay.appendChild(tempContainer4);
 FourthDay.appendChild(dayName4);
 //#endregion
 
+
+//#region 5DayContent
+//#region  Cloud2
+const cloudImageCont5=document.createElement('div');
+const cloudImage5=document.createElement('img');
+const cloudIconId5=weather.list[33].weather[0].icon;
+cloudImage5.src=`http://openweathermap.org/img/wn/${cloudIconId5}@2x.png`;
+cloudImageCont5.classList.add('fifth_day-image_container');
+cloudImageCont5.appendChild(cloudImage5);
+
+//#endregion
+//#region Temperature
+const tempFromApi5=Temperature(weather.list[33].main.temp);
+const tempContainer5=document.createElement('div');
+tempContainer5.classList.add('fifth_day-temp_cont');
+const temperature5=document.createElement('p');
+temperature5.classList.add('fifth_day-temp');
+temperature5.innerHTML=`<h3>${tempFromApi5} &#176</h3>`;
+tempContainer5.appendChild(temperature5);
+
+//#endregion
+//#region dayName
+
+const dayNameParsed5=getDay(weather,33);
+const dayName5=document.createElement('h3');
+dayName5.innerHTML=dayNameParsed5;
+
+
+//#endregion
+
+fifthDay.appendChild(cloudImageCont5);
+fifthDay.appendChild(tempContainer5);
+fifthDay.appendChild(dayName5);
+//#endregion
 innerWeekContent.appendChild(firstDay);
 innerWeekContent.appendChild(SecondDay);
 innerWeekContent.appendChild(ThirdDay);
 innerWeekContent.appendChild(FourthDay);
+innerWeekContent.appendChild(fifthDay);
 
 return innerWeekContent;
 }
