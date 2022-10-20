@@ -5,7 +5,10 @@ export const getWeatherData=async (city)=>{
 try{
     // 501f0822ab639797091ce0885a6ddb58
     // 124a7739c2014e0dfc7f19a9c07fa3d2
+    // https://api.openweathermap.org/data/3.0/onecall?q=${city}&daily=8&appid=49c9532416e7538ad2649c8362c1b14d
+    //     const response=await fetch(`https://api.openweathermap.org/data/2.5/onecall?q=${city}&appid=49c9532416e7538ad2649c8362c1b14d`);
     const response=await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=49c9532416e7538ad2649c8362c1b14d`);
+
         return await response.json();
 }
 catch(error){

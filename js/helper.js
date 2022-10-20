@@ -70,10 +70,12 @@ export const GetMonth=(date)=>{
 //    const dayPars=new Date(day);
 //    console.log(dayPars.getDay());
 }
-export const getDay=(weather)=>{
-const date=Date.parse(weather.list[0].dt_txt);
+export const getDay=(weather,day)=>{
+const date=Date.parse(weather.list[day].dt_txt);
 const newDate=new Date(date);
+
 const dayOfWeek=newDate.getDay();
+console.log(dayOfWeek)
 let dayOfWeekString='';
 switch(dayOfWeek){
     case 1:
@@ -94,7 +96,7 @@ switch(dayOfWeek){
     case 6:
     dayOfWeekString='Saturday';
     break;
-    case 7:
+    case 7,0:
     dayOfWeekString='Sunday';
     break;
 }
