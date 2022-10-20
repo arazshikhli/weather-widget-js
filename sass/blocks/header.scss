@@ -1,0 +1,79 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+ 
+}
+.mode_btn{
+    margin:0px 20px 20px 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border:1px solid gray;
+    transition: all 0.7s;
+ 
+}
+
+.dark_mode{
+    background-image: url('/img/icons/moon-6695.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.7s;
+}
+.light_mode{
+    background-image: url('/img/icons/sun-3335.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.7s;
+    &:hover{
+        background-color: rgb(207, 246, 139);
+    }
+}
+    .city_input{
+        height: 40px;
+        display: block;
+        margin:10px 0px 10px 10px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    .city_change-btn{
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin: 10px 10px 10px 2px;
+    }
+    .input_container{
+        display:flex;
+        flex-direction:row;
+    }
+    .city_name{
+        color: black;
+    
+    }
+    .city_select-btn{
+        width: 50px;
+        height: 30px;
+        border-radius: 5px;
+        border:none;
+        margin-top:5px;
+        cursor: pointer;
+        box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+        margin: 10px;
+        font-size: 10px;
+        font-weight: 600;
+        color: firebrick;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        transition: all 0.7s;
+        &:hover{
+            background-color: blue;
+            color: aliceblue;
+        }
+    }
+    .day_content-tem_info{
+        display: flex;
+        flex-direction: column;
+    }

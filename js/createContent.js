@@ -1,0 +1,62 @@
+import { getDay, GetMonth, Temperature } from "./helper.js";
+
+export const createContent=(weather)=>{
+
+const dateTempcontainer=document.createElement('div');
+const cloudImageContainer=document.createElement('div');
+const otherWeatherInfo=document.createElement('div');
+const dayContent=document.querySelector('.day_content');
+dateTempcontainer.classList.add('day_content-city_info','day_content-inner');
+cloudImageContainer.classList.add('day_content-cloud','day_content-inner');
+otherWeatherInfo.classList.add('day_content-other_info','day_content-inner');
+const month=  GetMonth(weather.list[0].dt_txt);
+const dayOfWeek=getDay(weather);
+const MonthDayTitle=document.createElement('div');
+MonthDayTitle.classList.add('day_content-month_title');
+const DayTempTitle=document.createElement('div');
+DayTempTitle.classList.add('day_content-tem_info');
+dateTempcontainer.append(MonthDayTitle);
+dateTempcontainer.append(DayTempTitle);
+const monthDayText=document.createElement('p');
+monthDayText.classList.add('day_content-month_name');
+monthDayText.textContent=month;
+const Day=document.createElement('p');
+Day.classList.add('day_content-day_name');
+Day.textContent=dayOfWeek;
+MonthDayTitle.appendChild(monthDayText);
+MonthDayTitle.appendChild(Day);
+const imageTempcontainer=document.createElement('div');
+const imageTemp=document.createElement('img');
+imageTempcontainer.classList.add('image_container');
+imageTemp.classList.add('temp_image');
+imageTemp.src='./img/icons/temperature.png';
+imageTempcontainer.append(imageTemp);
+const bigTemp=document.createElement('div');
+const smallTemp=document.createElement('div');
+bigTemp.classList.add('temp_info-city_temp');
+smallTemp.classList.add('temp_info-temp_flike');
+const tempKalvin=weather.list[0].main.temp;
+const feelsLikeTempKalvin=weather.list[0].main.feels_like;
+bigTemp.innerHTML=`<h2>${Temperature(tempKalvin)}&#176 </h2>`;
+smallTemp.innerHTML=`<h3>Feels like ${Temperature(feelsLikeTempKalvin)}&#176</h3>`;
+const WeatherMainCloud=document.createElement('img');
+WeatherMainCloud.classList.add('cloud_image');
+const cloudIconId=weather.list[0].weather[0].icon;
+WeatherMainCloud.src=`http://openweathermap.org/img/wn/${cloudIconId}@2x.png`;
+cloudImageContainer.append(WeatherMainCloud);
+const cloudDescription=document.createElement('div');
+cloudDescription.classList.add('cloud_description');
+const cloudDescriptionTitle=document.createElement('h3');
+cloudDescriptionTitle.classList.add('cloud_description-title');
+cloudDescriptionTitle.textContent=weather.list[0].weather[0].description;
+cloudDescription.append(cloudDescriptionTitle);
+DayTempTitle.append(imageTempcontainer);
+cloudImageContainer.appendChild(cloudDescription);
+DayTempTitle.appendChild(bigTemp);
+DayTempTitle.appendChild(smallTemp);
+dayContent.append(dateTempcontainer);
+dayContent.append(cloudImageContainer);
+
+dayContent.append(otherWeatherInfo);
+return dayContent;
+}

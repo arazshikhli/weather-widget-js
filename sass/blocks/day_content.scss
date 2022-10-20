@@ -1,0 +1,24 @@
+.day_content{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.image_container{
+    img{
+        width: 50px;
+    }
+}
+.day_content-cloud{
+   img{
+    width: 300px;
+   }
+}
+.cloud_description{
+    text-align: center;
+    h3{
+        margin: 0;
+        padding: 0;
+    }
+}

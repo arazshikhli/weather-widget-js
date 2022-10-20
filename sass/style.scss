@@ -1,0 +1,10 @@
+.app{
+    width: 100%;
+    height: 800px;
+   background-color: rgb(44, 100, 145);
+    margin: 0 auto;
+    color: white;
+}
+@import 'blocks/header';
+@import 'blocks/day_content';
+@import 'blocks/week_content';
