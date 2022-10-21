@@ -25,16 +25,16 @@ const cloudImageCont=document.createElement('div');
 const cloudImage=document.createElement('img');
 const cloudIconId1=weather.list[1].weather[0].icon;
 cloudImage.src=`http://openweathermap.org/img/wn/${cloudIconId1}@2x.png`;
-cloudImageCont.classList.add('first_day-image_container');
+cloudImageCont.classList.add('first_day-image_container','week_day-image_container');
 cloudImageCont.appendChild(cloudImage);
 
 //#endregion
 //#region Temperature
 const tempFromApi=Temperature(weather.list[1].main.temp);
 const tempContainer=document.createElement('div');
-tempContainer.classList.add('first_day-temp_cont');
+tempContainer.classList.add('first_day-temp_cont','week_day-temp_cont');
 const temperature=document.createElement('p');
-temperature.classList.add('first_day-temp');
+temperature.classList.add('first_day-temp','week_day-temp');
 temperature.innerHTML=`<h3>${tempFromApi} &#176</h3>`;
 tempContainer.appendChild(temperature);
 
@@ -60,16 +60,16 @@ const cloudImageCont2=document.createElement('div');
 const cloudImage2=document.createElement('img');
 const cloudIconId2=weather.list[9].weather[0].icon;
 cloudImage2.src=`http://openweathermap.org/img/wn/${cloudIconId2}@2x.png`;
-cloudImageCont2.classList.add('second_day-image_container');
+cloudImageCont2.classList.add('second_day-image_container','week_day-image_container');
 cloudImageCont2.appendChild(cloudImage2);
 
 //#endregion
 //#region Temperature
 const tempFromApi2=Temperature(weather.list[9].main.temp);
 const tempContainer2=document.createElement('div');
-tempContainer2.classList.add('second_day-temp_cont');
+tempContainer2.classList.add('second_day-temp_cont','week_day-temp_cont');
 const temperature2=document.createElement('p');
-temperature2.classList.add('second_day-temp');
+temperature2.classList.add('second_day-temp','week_day-temp');
 temperature2.innerHTML=`<h3>${tempFromApi2} &#176</h3>`;
 tempContainer2.appendChild(temperature2);
 
@@ -93,16 +93,16 @@ const cloudImageCont3=document.createElement('div');
 const cloudImage3=document.createElement('img');
 const cloudIconId3=weather.list[17].weather[0].icon;
 cloudImage3.src=`http://openweathermap.org/img/wn/${cloudIconId3}@2x.png`;
-cloudImageCont3.classList.add('third_day-image_container');
+cloudImageCont3.classList.add('third_day-image_container','week_day-image_container');
 cloudImageCont3.appendChild(cloudImage3);
 
 //#endregion
 //#region Temperature
 const tempFromApi3=Temperature(weather.list[17].main.temp);
 const tempContainer3=document.createElement('div');
-tempContainer3.classList.add('third_day-temp_cont');
+tempContainer3.classList.add('third_day-temp_cont','week_day-temp_cont');
 const temperature3=document.createElement('p');
-temperature3.classList.add('third_day-temp');
+temperature3.classList.add('third_day-temp','week_day-temp');
 temperature3.innerHTML=`<h3>${tempFromApi3} &#176</h3>`;
 tempContainer3.appendChild(temperature3);
 
@@ -126,16 +126,16 @@ const cloudImageCont4=document.createElement('div');
 const cloudImage4=document.createElement('img');
 const cloudIconId4=weather.list[25].weather[0].icon;
 cloudImage4.src=`http://openweathermap.org/img/wn/${cloudIconId4}@2x.png`;
-cloudImageCont4.classList.add('fourth_day-image_container');
+cloudImageCont4.classList.add('fourth_day-image_container','week_day-image_container','week_day-image_container');
 cloudImageCont4.appendChild(cloudImage4);
 
 //#endregion
 //#region Temperature
 const tempFromApi4=Temperature(weather.list[25].main.temp);
 const tempContainer4=document.createElement('div');
-tempContainer4.classList.add('fourth_day-temp_cont');
+tempContainer4.classList.add('fourth_day-temp_cont','week_day-temp_cont');
 const temperature4=document.createElement('p');
-temperature4.classList.add('fourth_day-temp');
+temperature4.classList.add('fourth_day-temp','week_day-temp');
 temperature4.innerHTML=`<h3>${tempFromApi4} &#176</h3>`;
 tempContainer4.appendChild(temperature4);
 
@@ -161,16 +161,16 @@ const cloudImageCont5=document.createElement('div');
 const cloudImage5=document.createElement('img');
 const cloudIconId5=weather.list[33].weather[0].icon;
 cloudImage5.src=`http://openweathermap.org/img/wn/${cloudIconId5}@2x.png`;
-cloudImageCont5.classList.add('fifth_day-image_container');
+cloudImageCont5.classList.add('fifth_day-image_container','week_day-image_container');
 cloudImageCont5.appendChild(cloudImage5);
 
 //#endregion
 //#region Temperature
 const tempFromApi5=Temperature(weather.list[33].main.temp);
 const tempContainer5=document.createElement('div');
-tempContainer5.classList.add('fifth_day-temp_cont');
+tempContainer5.classList.add('fifth_day-temp_cont','week_day-temp_cont');
 const temperature5=document.createElement('p');
-temperature5.classList.add('fifth_day-temp');
+temperature5.classList.add('fifth_day-temp','week_day-temp');
 temperature5.innerHTML=`<h3>${tempFromApi5} &#176</h3>`;
 tempContainer5.appendChild(temperature5);
 

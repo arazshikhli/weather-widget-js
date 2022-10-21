@@ -77,3 +77,26 @@
         display: flex;
         flex-direction: column;
     }
+//   startMenuBtn.classList.add('input_container-start_button');
+
+// const startButtonContainer=document.createElement('div');
+// startButtonContainer.classList.add('start_btn-container');
+.input_container-start_button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid rgb(36, 3, 45);
+    margin:20px 0px 10px 20px;
+    background-color: rgb(100, 3, 124);
+    color:antiquewhite;
+    cursor: pointer;
+    transition: all 0.7s;
+    &:hover{
+        background-color: aliceblue;
+        color:rgb(100, 3, 124); 
+        font-size: 18px;
+        letter-spacing: 2px;
+        width: 150px;
+        font-weight: 800;
+    }
+}

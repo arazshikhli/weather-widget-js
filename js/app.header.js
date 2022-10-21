@@ -20,6 +20,13 @@ import { createWeekContent } from "./week.content.js";
     const InnerTitleContainer=document.createElement('div');
     const SwitcherContainer=document.createElement('div');
     const ModeController=document.createElement('div');
+    const startMenuBtn =document.createElement('button');
+    startMenuBtn.classList.add('input_container-start_button');
+    startMenuBtn.textContent="Select City";
+    const startButtonContainer=document.createElement('div');
+    startButtonContainer.classList.add('start_btn-container');
+    startButtonContainer.append(startMenuBtn);
+    InnerTitleContainer.appendChild(startButtonContainer);
     
    
     const ModeButton=document.createElement('button');
@@ -49,24 +56,23 @@ import { createWeekContent } from "./week.content.js";
     appContent.appendChild(header);
    
     // InnerTitleContainer.appendChild(CitySelectBtn);
-    InnerTitleContainer.appendChild(InputContainer);
-    InputContainer.appendChild(CitySelect);//
-    InputContainer.appendChild(ChangeCityBtn);//
+   //
     InnerTitleContainer.appendChild(CityName);
     InnerTitleContainer.appendChild(errorBlock);
     ModeController.appendChild(ModeButton);
-    // CitySelectBtn.textContent='Change City';
     ChangeCityBtn.textContent='Ok';
     
-    //  CitySelectBtn.addEventListener('click',()=>{
-    //   const InputContainer=document.createElement('div');
-    //   InputContainer.classList.add('input_container');
-    //   InputContainer.appendChild(CitySelect);
-    //   InputContainer.appendChild(ChangeCityBtn);
-    //   InnerTitleContainer.appendChild(InputContainer);
-    // })
+  startMenuBtn.addEventListener('click',()=>{
+    InnerTitleContainer.appendChild(InputContainer);
+    InputContainer.appendChild(CitySelect);//
+    InputContainer.appendChild(ChangeCityBtn);
+    InnerTitleContainer.removeChild(startButtonContainer);
+    dayContent.innerHTML='';
+    weekContent.innerHTML='';
+  })
+
+
     ChangeCityBtn.addEventListener('click',async()=>{   
-    
       const cityValue=CitySelect.value;
       if(!cityValue){return;}
       try{
@@ -103,19 +109,19 @@ import { createWeekContent } from "./week.content.js";
         appContent.appendChild(weekContent);
         if(InnerTitleContainer.contains(errorBlock)){
           InnerTitleContainer.removeChild(errorBlock);
-        }
-        
-        createContent(weather);
-      
+        }   
+        createContent(weather);      
       }
       catch(error){
         console.log(error);
       
       }
-      
+      InnerTitleContainer.removeChild(InputContainer);
+      InnerTitleContainer.appendChild(startButtonContainer);
+      startMenuBtn.textContent="Change city";
     }  
     )
-
+ 
     return appContent;
 }
 export const CityContent=()=>{
