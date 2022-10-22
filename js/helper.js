@@ -70,12 +70,13 @@ export const GetMonth=(date)=>{
 //    const dayPars=new Date(day);
 //    console.log(dayPars.getDay());
 }
+
 export const getDay=(weather,day)=>{
 const date=Date.parse(weather.list[day].dt_txt);
 const newDate=new Date(date);
 
 const dayOfWeek=newDate.getDay();
-console.log(dayOfWeek)
+
 let dayOfWeekString='';
 switch(dayOfWeek){
     case 1:
@@ -106,4 +107,40 @@ export const Temperature=(kalvin)=>{
 //
 const celsium=Math.floor(kalvin-273.15);
 return celsium;
+}
+
+
+
+export const ElementCreator=(elType,ElClass,content)=>{
+const elementName=document.createElement(elType);
+elementName.classList.add(ElClass);
+if(elType==='img'){
+    elementName.src=content;
+}
+if(elType==='h3'){
+    elementName.innerHTML=content;
+  
+}
+if(elType==='h2'){
+    elementName.innerHTML=content;
+  
+}
+if(elType==='h1'){
+    elementName.innerHTML=content;
+  
+}
+if(elType==='p'){
+    elementName.innerHTML=content;
+  
+}
+if (elType==='input'){
+    elementName.placeholder=content;
+}
+if(elType==='button'){
+    elementName.textContent=content;
+}
+if(elType==='div'){
+    elementName.innerHTML=content;
+}
+return elementName;
 }

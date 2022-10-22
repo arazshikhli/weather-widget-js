@@ -1,67 +1,41 @@
 import { getWeatherData } from "./api.js";
 import { createContent } from "./createContent.js";
-import { resetWeatherContent } from "./helper.js";
+import { ElementCreator, resetWeatherContent } from "./helper.js";
 import { createWeekContent } from "./week.content.js";
 
 
  
  export const createElements=()=>{
-    const appContent=document.createElement('div');
-    const header=document.createElement('header');
-    const dayContent=document.createElement('div');
-    const weekContent=document.createElement('div');
-    // const CitySelectBtn=document.createElement('button');
-    const InputContainer=document.createElement('div');
-    const CitySelect=document.createElement('input');
-    const ChangeCityBtn=document.createElement('button');
-    const CityName=document.createElement('h2');
-    const errorBlock=document.createElement('p');
-    const TitleContent=document.createElement('div');
-    const InnerTitleContainer=document.createElement('div');
-    const SwitcherContainer=document.createElement('div');
-    const ModeController=document.createElement('div');
-    const startMenuBtn =document.createElement('button');
-    startMenuBtn.classList.add('input_container-start_button');
-    startMenuBtn.textContent="Select City";
-    const startButtonContainer=document.createElement('div');
-    startButtonContainer.classList.add('start_btn-container');
+    const appContent=ElementCreator('div','app','');
+    const header=ElementCreator('div','header','');
+    const dayContent=ElementCreator('div','day_content','');
+    const weekContent=ElementCreator('div','week_content');
+    const InputContainer=ElementCreator('div','input_container','');
+    const CitySelect=ElementCreator('input','city_input','Enter city name');
+    const ChangeCityBtn=ElementCreator('button','city_change-btn','Ok');
+    const CityName=ElementCreator('h2','city_name','');
+    const errorBlock=ElementCreator('p','city_error','');
+    const TitleContent=ElementCreator('div','header_title','');
+    const InnerTitleContainer=ElementCreator('div','header_title-inner','');
+    const SwitcherContainer=ElementCreator('div','header_content-switcher','');
+    const ModeController=ElementCreator('div','mode_control','');
+    const startMenuBtn =ElementCreator('button','input_container-start_button','Select City');
+    const startButtonContainer=ElementCreator('div','start_btn-container','');
     startButtonContainer.append(startMenuBtn);
     InnerTitleContainer.appendChild(startButtonContainer);
-    
-   
-    const ModeButton=document.createElement('button');
-    
-    appContent.classList.add('app');
+    const ModeButton=ElementCreator('button','mode_btn','');
     document.body.append(appContent);
-    ModeController.classList.add('mode_control');
     ModeButton.classList.add('mode_btn');
-    InnerTitleContainer.classList.add('header_title-inner');
-    ChangeCityBtn.classList.add('city_change-btn');
-    TitleContent.classList.add('header_title');
-    SwitcherContainer.classList.add('header_content-switcher');
-    header.classList.add('header');
-    dayContent.classList.add('day_content');
-    weekContent.classList.add('week_content');
-    CitySelect.classList.add('city_input');
-    CitySelect.placeholder='Enter City name'
-    // CitySelectBtn.classList.add('city_select-btn');
-    CityName.classList.add('city_name');
-    errorBlock.classList.add('city_error');
-    InputContainer.classList.add('input_container');
-
     TitleContent.appendChild(InnerTitleContainer);
     SwitcherContainer.appendChild(ModeController);
     header.appendChild(TitleContent);
     header.appendChild(SwitcherContainer);
     appContent.appendChild(header);
-   
-    // InnerTitleContainer.appendChild(CitySelectBtn);
-   //
+
     InnerTitleContainer.appendChild(CityName);
     InnerTitleContainer.appendChild(errorBlock);
     ModeController.appendChild(ModeButton);
-    ChangeCityBtn.textContent='Ok';
-    
+
   startMenuBtn.addEventListener('click',()=>{
     InnerTitleContainer.appendChild(InputContainer);
     InputContainer.appendChild(CitySelect);//
@@ -102,7 +76,7 @@ import { createWeekContent } from "./week.content.js";
         if(isTrue===false){
        
           weekContent.appendChild(WeekContentBlock);
-          console.log("a");
+         
           isTrue=true;
         }
        

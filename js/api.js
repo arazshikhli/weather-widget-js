@@ -12,3 +12,6 @@ catch(error){
     console.log(error);
 }
 }
+class Weather{
+    
+}
