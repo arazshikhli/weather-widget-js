@@ -11,7 +11,7 @@ const dayContent=document.querySelector('.day_content');
 //Other Info Container
 
 const humidityContainer=ElementCreator('div','other_info-humidity_cont','');
-const humidityImage=ElementCreator('img','other_info-humidity_image','/img/icons/other_info/humidity.png');
+const humidityImage=ElementCreator('img','other_info-humidity_image','./img/icons/other_info/humidity.png');
 const humidityInfo=ElementCreator('h3','other_info-humidity_info',weather.list[1].main.humidity);
 humidityContainer.appendChild(humidityImage);
 humidityContainer.appendChild(humidityInfo);
