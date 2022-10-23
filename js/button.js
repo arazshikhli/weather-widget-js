@@ -13,7 +13,5 @@ export const modeChange=()=>{
             app.classList.add('dark-mode');
             ModeBtn.textContent="turn to light mode";
         }
-       
     })
-    
 }
