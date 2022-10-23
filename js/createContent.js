@@ -17,7 +17,7 @@ humidityContainer.appendChild(humidityImage);
 humidityContainer.appendChild(humidityInfo);
 otherWeatherInfo.appendChild(humidityContainer);
 
-const windSpeedFromApi=weather.list[1].wind.speed;
+let windSpeedFromApi=weather.list[1].wind.speed;
 const windSpeedContainer=ElementCreator('div','other_info-windspeed_cont','');
 const windSpeedImage=ElementCreator('img','other_info-windspeed_image','./img/icons/other_info/wind.png');
 const windSpeedInfo=ElementCreator('h3','other_info-windspeed_info',Math.floor(windSpeedFromApi) +" km/h");
@@ -25,8 +25,8 @@ windSpeedContainer.appendChild(windSpeedImage);
 windSpeedContainer.appendChild(windSpeedInfo);
 otherWeatherInfo.appendChild(windSpeedContainer);
 
-const WindDegree=weather.list[1].wind.deg;
-const WindDirection=getWindDirection(WindDegree);
+let WindDegree=weather.list[1].wind.deg;
+let WindDirection=getWindDirection(WindDegree);
 const windDirectionContainer=ElementCreator('div','other_info-winddirection_cont','');
 const windDirectionImage=ElementCreator('img','other_info-winddirection_image','./img/icons/other_info/wind-direction.png');
 const windDirectioninfo=ElementCreator('h3','other_info-winddirection_info',WindDirection);
@@ -34,7 +34,7 @@ windDirectionContainer.appendChild(windDirectionImage);
 windDirectionContainer.appendChild(windDirectioninfo);
 otherWeatherInfo.appendChild(windDirectionContainer);
 
-const pressureFromApi=weather.list[1].main.pressure;
+let pressureFromApi=weather.list[1].main.pressure;
 const pressureContainer=ElementCreator('div','other_info-pressure_cont','');
 const pressureImage=ElementCreator('img','other_info-pressure_image','./img/icons/other_info/pressure.webp');
 const pressureInfo=ElementCreator('h3','other_info-pressure_info',pressureFromApi.toFixed(1)+" mb");
@@ -88,9 +88,6 @@ function ChangeDayContent(){
     let dayName=document.querySelector('.day_content-day_name');
     let bigTemp=document.querySelector('.big_temp');
     let smallTemp=document.querySelector('.small_temp');
-    let cloudDescription=document.querySelector('.cloud_description-title');
-   //  const cloudDescriptionTitle=ElementCreator('h3','cloud_description-title',weather.list[1].weather[0].description)
-  
 
       myFunc();
       function myFunc(){
@@ -115,6 +112,15 @@ function ChangeDayContent(){
                monthText.innerHTML=month;
                smallTemp.innerHTML=`<h3 class='small_temp'>Feels like ${Temperature(feelsLikeTempKalvin)}&#176</h3>`;
                cloudDescriptionTitle.innerHTML=weather.list[dayIndex].weather[0].description;
+               humidityInfo.innerHTML=weather.list[dayIndex].main.humidity+" &#37";
+               windSpeedFromApi=weather.list[dayIndex].wind.speed;
+               console.log(windSpeedFromApi);
+               windSpeedInfo.innerHTML=windSpeedFromApi.toFixed(1) +" km/h";
+               WindDegree=weather.list[dayIndex].wind.deg;
+               WindDirection=getWindDirection(WindDegree);
+               windDirectioninfo.innerHTML=WindDirection;
+               pressureFromApi=weather.list[dayIndex].main.pressure;
+               pressureInfo.innerHTML=pressureFromApi.toFixed(1)+" mb";
             });
     
           })

@@ -7,30 +7,27 @@
 }
 .mode_btn{
     margin:0px 20px 20px 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
     border:1px solid gray;
     transition: all 0.7s;
+    font-size: 10px;
+
  
 }
 
-.dark_mode{
-    background-image: url('/img/icons/moon-6695.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.dark-mode{
+  
+    background-color:rgb(24, 23, 23);
+    color: white;
     transition: all 0.7s;
 }
-.light_mode{
-    background-image: url('/img/icons/sun-3335.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.light-mode{
+   
+    background-color: rgb(44, 100, 145);
     transition: all 0.7s;
-    &:hover{
-        background-color: rgb(207, 246, 139);
-    }
+   
 }
     .city_input{
         height: 40px;

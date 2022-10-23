@@ -1,14 +1,19 @@
 export const modeChange=()=>{
     const ModeBtn=document.querySelector('.mode_btn');
+    const header=document.querySelector('.header');
+    const dayContent=document.querySelector('.day_content');
+    const weekcontent=document.querySelector('.week_content');
+    const app=document.querySelector('.app');
+   
+    app.classList.add('light-mode');
+    ModeBtn.textContent="turn to dark mode";
     ModeBtn.addEventListener('click',()=>{
-        if(!ModeBtn.classList.contains('dark_mode')){
-            ModeBtn.classList.add('dark_mode');
-            ModeBtn.classList.remove('light_mode'); 
+        if(app.classList.contains('light-mode')){
+            app.classList.remove('light-mode');
+            app.classList.add('dark-mode');
+            ModeBtn.textContent="turn to light mode";
         }
-        else{
-            ModeBtn.classList.add('light_mode');
-            ModeBtn.classList.remove('dark_mode');            
-        }
+       
     })
     
 }
