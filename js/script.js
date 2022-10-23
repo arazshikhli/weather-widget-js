@@ -10,8 +10,9 @@ const app=async ()=>{
     // console.log(weather);
     createElements();
     modeChange();
-  
+   
 }
+
 
 app();
 

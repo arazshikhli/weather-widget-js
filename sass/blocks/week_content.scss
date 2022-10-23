@@ -1,21 +1,30 @@
+
 .week_content{
    
     width: 100%;
     background-color: rgb(6, 155, 236);
+   
     .week_content-inner{
         width: 100%;
         display:flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
     
 }
 
-
+@media(max-width:1000px){
+    .week_content-inner{
+        flex-direction: column;
+    }
+}
 .week_days{
     display:block;
+    width: 25%;
+    cursor: pointer;
+    border: 2px solid rgba(0, 0, 0, 0);
     .week_day-temp_cont{
         text-align: center;
     }
@@ -27,3 +36,38 @@
     }
     text-align: center;
 }
+// const showMoreContainer=ElementCreator('div','week_content-button_cont','');
+// const firstDayBtn=ElementCreator('button','first_button','Show More info...');
+// const secondDayBtn=ElementCreator('button','second_button','Show More info...');
+// const thirdDayBtn=ElementCreator('button','third_button','Show More info...');
+// const fourthDayBtn=ElementCreator('button','fourth_button','Show More info...');
+// const fifthDayBtn=ElementCreator('button','fifth_button','Show More info...');
+
+.week_content-button_cont{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+
+  
+}
+button{
+    width: 100%;
+    height: 40px;
+    cursor:pointer;
+    background-color: #069BEC;
+    color: antiquewhite;
+    border:1px solid #069BEC;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.7s;
+    font-family: 'Exo',sans-serif;
+   
+}
+button:hover{
+    background-color: antiquewhite;
+    color: rgb(5, 21, 127);
+    font-weight: 800;
+    letter-spacing: 2px;
+
+  }

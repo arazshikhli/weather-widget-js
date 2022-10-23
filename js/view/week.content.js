@@ -1,15 +1,28 @@
-import { getDay, Temperature } from "./helper.js";
+import { ElementCreator, getDay, Temperature } from "../helper.js";
+import { Weather } from "../model/api.js";
 
 export const createWeekContent=(weather)=>{
     
     const innerWeekContent=document.createElement('div');
     innerWeekContent.classList.add('week_content-inner');
+    const firstDayBtn=ElementCreator('button','first_button','Show More...');
+    const secondDayBtn=ElementCreator('button','second_button','Show More...');
+    const thirdDayBtn=ElementCreator('button','third_button','Show More...');
+    const fourthDayBtn=ElementCreator('button','fourth_button','Show More...');
+    const fifthDayBtn=ElementCreator('button','fifth_button','Show More...');
+    firstDayBtn.setAttribute("data-num","1");
+    secondDayBtn.setAttribute("data-num","9");
+    thirdDayBtn.setAttribute("data-num","17");
+    fourthDayBtn.setAttribute("data-num","25");
+    fifthDayBtn.setAttribute("data-num","33");
 
 const firstDay=document.createElement('div');
 const SecondDay=document.createElement('div');
 const ThirdDay=document.createElement('div');
 const FourthDay=document.createElement('div');
 const fifthDay=document.createElement('div');
+
+
 
 firstDay.classList.add('first_day','week_days');
 SecondDay.classList.add('second_day','week_days');
@@ -50,6 +63,7 @@ dayName.innerHTML=dayNameParsed;
 firstDay.appendChild(cloudImageCont);
 firstDay.appendChild(tempContainer);
 firstDay.appendChild(dayName);
+firstDay.appendChild(firstDayBtn);
 //#endregion
 
 ////////
@@ -84,6 +98,7 @@ dayName2.innerHTML=dayNameParsed2;
 SecondDay.appendChild(cloudImageCont2);
 SecondDay.appendChild(tempContainer2);
 SecondDay.appendChild(dayName2);
+SecondDay.appendChild(secondDayBtn);
 //#endregion
 
 
@@ -118,6 +133,7 @@ dayName3.innerHTML=dayNameParsed3;
 ThirdDay.appendChild(cloudImageCont3);
 ThirdDay.appendChild(tempContainer3);
 ThirdDay.appendChild(dayName3);
+ThirdDay.appendChild(thirdDayBtn);
 //#endregion
 
 //#region 4DayContent
@@ -152,6 +168,7 @@ dayName4.innerHTML=dayNameParsed4;
 FourthDay.appendChild(cloudImageCont4);
 FourthDay.appendChild(tempContainer4);
 FourthDay.appendChild(dayName4);
+FourthDay.appendChild(fourthDayBtn);
 //#endregion
 
 
@@ -187,12 +204,15 @@ dayName5.innerHTML=dayNameParsed5;
 fifthDay.appendChild(cloudImageCont5);
 fifthDay.appendChild(tempContainer5);
 fifthDay.appendChild(dayName5);
+fifthDay.appendChild(fifthDayBtn);
+
 //#endregion
 innerWeekContent.appendChild(firstDay);
 innerWeekContent.appendChild(SecondDay);
 innerWeekContent.appendChild(ThirdDay);
 innerWeekContent.appendChild(FourthDay);
 innerWeekContent.appendChild(fifthDay);
+ 
 
 return innerWeekContent;
 }

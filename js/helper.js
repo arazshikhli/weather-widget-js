@@ -7,9 +7,43 @@ export const resetWeatherContent = (city) => {
     document.body.append(header);
 }
 
+export const getWindDirection=(windDegree)=>{
+    let direction='';
+if(+windDegree===0|| +windDegree===360){
+    direction="North";
+}
+if(+windDegree===90){
+    direction="East";
+}
+if(+windDegree===180){
+    direction="South";
+}
+if(+windDegree===270){
+    direction="West";
+}
+if(+windDegree>0 && +windDegree<90){
+    direction="North-East";
+}
+if(+windDegree>90 && +windDegree<180){
+    direction="South-East";
+}
+if(+windDegree>180 && +windDegree<270){
+    direction="South-West";
+}
+if(+windDegree>180 && +windDegree<270){
+    direction="South-West";
+}
+if(+windDegree>270 && +windDegree<360){
+    direction="North-West";
+}
+console.log(direction);
+return direction;
+}
 export const GetMonth=(date)=>{
-    const month=+(date[5]+date[6]);
-    const day=+(date[8]+date[9]);
+  
+    let day=+(date[8]+date[9]);
+    let month=+(date[5]+date[6]);
+    
    
    let strMonth='';
 
@@ -65,10 +99,7 @@ export const GetMonth=(date)=>{
     }
    }
    return strMonth+', '+day;
-//    const day=Date.parse(weather.list[0].dt_txt);
-//    console.log(day);
-//    const dayPars=new Date(day);
-//    console.log(dayPars.getDay());
+
 }
 
 export const getDay=(weather,day)=>{

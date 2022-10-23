@@ -1,7 +1,8 @@
-import { getWeatherData } from "./api.js";
+import { getWeatherData } from "./model/api.js";
 import { createContent } from "./createContent.js";
 import { ElementCreator, resetWeatherContent } from "./helper.js";
-import { createWeekContent } from "./week.content.js";
+import { createWeekContent } from "./view/week.content.js";
+import { showMoreInfo } from "./view/showhmore.js";
 
 
  
@@ -51,10 +52,9 @@ import { createWeekContent } from "./week.content.js";
       if(!cityValue){return;}
       try{
         const weather=await getWeatherData(cityValue||localStorage.getItem('city'));
-        // const weather = await getWeatherData(localStorage.getItem('city') || 'Москва');
+        
         if(weather.message){
           console.log('error');
-          // InnerTitleContainer
           errorBlock.textContent="City not found";
           InnerTitleContainer.appendChild(errorBlock);
           CityName.innerHTML='';
@@ -64,23 +64,27 @@ import { createWeekContent } from "./week.content.js";
         }
         dayContent.innerHTML='';
         
-        // const weekBlock=document.querySelector('.week_content-inner');
-        // weekBlock.innerHTML='';
+    
         localStorage.setItem('city', weather.city.name);
         CityName.innerText=weather.city.name;
         console.log(weather);
         const WeekContentBlock=createWeekContent(weather);
+        
       //  weekContent.append(WeekContentBlock);
         appContent.appendChild(dayContent);
         let isTrue=weekContent.contains(WeekContentBlock);
         if(isTrue===false){
        
           weekContent.appendChild(WeekContentBlock);
-         
+        
+          ///ShowMoreBlock
+          
+
           isTrue=true;
         }
        
         appContent.appendChild(weekContent);
+    
         if(InnerTitleContainer.contains(errorBlock)){
           InnerTitleContainer.removeChild(errorBlock);
         }   
@@ -96,6 +100,7 @@ import { createWeekContent } from "./week.content.js";
     }  
     )
  
+   
     return appContent;
 }
 export const CityContent=()=>{
