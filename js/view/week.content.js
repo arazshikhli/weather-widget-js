@@ -1,8 +1,37 @@
-import { ElementCreator, getDay, Temperature } from "../helper.js";
-import { Weather } from "../model/api.js";
+import { ElementCreator, getDay, Temperature,Weather} from "../helper.js";
+
 
 export const createWeekContent=(weather)=>{
-    
+  
+    const myWeather1=new Weather();
+    const myWeather2=new Weather();
+    const myWeather3=new Weather();
+    const myWeather4=new Weather();
+    const myWeather5=new Weather();
+   
+    myWeather1.dayIndex=1;
+    myWeather1.temperature=Temperature(weather.list[myWeather1.dayIndex].main.temp);
+    myWeather1.day=getDay(weather,myWeather1.dayIndex);
+    myWeather1.cloudIconId=weather.list[myWeather1.dayIndex].weather[0].icon;
+
+    myWeather2.dayIndex=9;
+    myWeather2.temperature=Temperature(weather.list[myWeather2.dayIndex].main.temp);
+    myWeather2.day=getDay(weather,myWeather2.dayIndex);
+    myWeather2.cloudIconId=weather.list[myWeather2.dayIndex].weather[0].icon;
+
+    myWeather3.dayIndex=17;
+    myWeather3.temperature=Temperature(weather.list[myWeather3.dayIndex].main.temp);
+    myWeather3.day=getDay(weather,myWeather3.dayIndex);
+    myWeather3.cloudIconId=weather.list[myWeather3.dayIndex].weather[0].icon;
+    myWeather4.dayIndex=25;
+    myWeather4.temperature=Temperature(weather.list[myWeather4.dayIndex].main.temp);
+    myWeather4.day=getDay(weather,myWeather4.dayIndex);
+    myWeather4.cloudIconId=weather.list[myWeather4.dayIndex].weather[0].icon;
+    myWeather5.dayIndex=33;
+    myWeather5.temperature=Temperature(weather.list[myWeather5.dayIndex].main.temp);
+    myWeather5.day=getDay(weather,myWeather5.dayIndex);
+    myWeather5.cloudIconId=weather.list[myWeather5.dayIndex].weather[0].icon;
+
     const innerWeekContent=document.createElement('div');
     innerWeekContent.classList.add('week_content-inner');
     const firstDayBtn=ElementCreator('button','first_button','Show More...');
@@ -36,28 +65,25 @@ fifthDay.classList.add('fifth_day','week_days');
 //#region  Cloud
 const cloudImageCont=document.createElement('div');
 const cloudImage=document.createElement('img');
-const cloudIconId1=weather.list[1].weather[0].icon;
+const cloudIconId1=myWeather1.cloudIconId;
 cloudImage.src=`http://openweathermap.org/img/wn/${cloudIconId1}@2x.png`;
 cloudImageCont.classList.add('first_day-image_container','week_day-image_container');
 cloudImageCont.appendChild(cloudImage);
 
 //#endregion
 //#region Temperature
-const tempFromApi=Temperature(weather.list[1].main.temp);
 const tempContainer=document.createElement('div');
 tempContainer.classList.add('first_day-temp_cont','week_day-temp_cont');
 const temperature=document.createElement('p');
 temperature.classList.add('first_day-temp','week_day-temp');
-temperature.innerHTML=`<h3>${tempFromApi} &#176</h3>`;
+temperature.innerHTML=`<h3>${myWeather1.temperature} &#176</h3>`;
 tempContainer.appendChild(temperature);
 
 //#endregion
 //#region dayName
 
-
-const dayNameParsed=getDay(weather,1);
 const dayName=document.createElement('h3');
-dayName.innerHTML=dayNameParsed;
+dayName.innerHTML=myWeather1.day;
 //#endregion
 
 firstDay.appendChild(cloudImageCont);
@@ -72,27 +98,25 @@ firstDay.appendChild(firstDayBtn);
 //#region  Cloud2
 const cloudImageCont2=document.createElement('div');
 const cloudImage2=document.createElement('img');
-const cloudIconId2=weather.list[9].weather[0].icon;
+const cloudIconId2=myWeather2.cloudIconId;
 cloudImage2.src=`http://openweathermap.org/img/wn/${cloudIconId2}@2x.png`;
 cloudImageCont2.classList.add('second_day-image_container','week_day-image_container');
 cloudImageCont2.appendChild(cloudImage2);
 
 //#endregion
 //#region Temperature
-const tempFromApi2=Temperature(weather.list[9].main.temp);
 const tempContainer2=document.createElement('div');
 tempContainer2.classList.add('second_day-temp_cont','week_day-temp_cont');
 const temperature2=document.createElement('p');
 temperature2.classList.add('second_day-temp','week_day-temp');
-temperature2.innerHTML=`<h3>${tempFromApi2} &#176</h3>`;
+temperature2.innerHTML=`<h3>${myWeather2.temperature} &#176</h3>`;
 tempContainer2.appendChild(temperature2);
 
 //#endregion
 //#region dayName
 
-const dayNameParsed2=getDay(weather,9);
 const dayName2=document.createElement('h3');
-dayName2.innerHTML=dayNameParsed2;
+dayName2.innerHTML=myWeather2.day;
 //#endregion
 
 SecondDay.appendChild(cloudImageCont2);
@@ -106,28 +130,24 @@ SecondDay.appendChild(secondDayBtn);
 //#region  Cloud2
 const cloudImageCont3=document.createElement('div');
 const cloudImage3=document.createElement('img');
-const cloudIconId3=weather.list[17].weather[0].icon;
-cloudImage3.src=`http://openweathermap.org/img/wn/${cloudIconId3}@2x.png`;
+
+cloudImage3.src=`http://openweathermap.org/img/wn/${myWeather3.cloudIconId}@2x.png`;
 cloudImageCont3.classList.add('third_day-image_container','week_day-image_container');
 cloudImageCont3.appendChild(cloudImage3);
 
 //#endregion
 //#region Temperature
-const tempFromApi3=Temperature(weather.list[17].main.temp);
 const tempContainer3=document.createElement('div');
 tempContainer3.classList.add('third_day-temp_cont','week_day-temp_cont');
 const temperature3=document.createElement('p');
 temperature3.classList.add('third_day-temp','week_day-temp');
-temperature3.innerHTML=`<h3>${tempFromApi3} &#176</h3>`;
+temperature3.innerHTML=`<h3>${myWeather3.temperature} &#176</h3>`;
 tempContainer3.appendChild(temperature3);
 
 //#endregion
 //#region dayName
-
-
-const dayNameParsed3=getDay(weather,17);
 const dayName3=document.createElement('h3');
-dayName3.innerHTML=dayNameParsed3;
+dayName3.innerHTML=myWeather3.day;
 //#endregion
 
 ThirdDay.appendChild(cloudImageCont3);
@@ -140,27 +160,23 @@ ThirdDay.appendChild(thirdDayBtn);
 //#region  Cloud2
 const cloudImageCont4=document.createElement('div');
 const cloudImage4=document.createElement('img');
-const cloudIconId4=weather.list[25].weather[0].icon;
-cloudImage4.src=`http://openweathermap.org/img/wn/${cloudIconId4}@2x.png`;
+cloudImage4.src=`http://openweathermap.org/img/wn/${myWeather4.cloudIconId}@2x.png`;
 cloudImageCont4.classList.add('fourth_day-image_container','week_day-image_container','week_day-image_container');
 cloudImageCont4.appendChild(cloudImage4);
 
 //#endregion
 //#region Temperature
-const tempFromApi4=Temperature(weather.list[25].main.temp);
 const tempContainer4=document.createElement('div');
 tempContainer4.classList.add('fourth_day-temp_cont','week_day-temp_cont');
 const temperature4=document.createElement('p');
 temperature4.classList.add('fourth_day-temp','week_day-temp');
-temperature4.innerHTML=`<h3>${tempFromApi4} &#176</h3>`;
+temperature4.innerHTML=`<h3>${myWeather4.temperature} &#176</h3>`;
 tempContainer4.appendChild(temperature4);
 
 //#endregion
 //#region dayName
-
-const dayNameParsed4=getDay(weather,25);
 const dayName4=document.createElement('h3');
-dayName4.innerHTML=dayNameParsed4;
+dayName4.innerHTML=myWeather4.day;
 
 
 //#endregion
@@ -176,27 +192,23 @@ FourthDay.appendChild(fourthDayBtn);
 //#region  Cloud2
 const cloudImageCont5=document.createElement('div');
 const cloudImage5=document.createElement('img');
-const cloudIconId5=weather.list[33].weather[0].icon;
-cloudImage5.src=`http://openweathermap.org/img/wn/${cloudIconId5}@2x.png`;
+cloudImage5.src=`http://openweathermap.org/img/wn/${myWeather5.cloudIconId}@2x.png`;
 cloudImageCont5.classList.add('fifth_day-image_container','week_day-image_container');
 cloudImageCont5.appendChild(cloudImage5);
 
 //#endregion
 //#region Temperature
-const tempFromApi5=Temperature(weather.list[33].main.temp);
 const tempContainer5=document.createElement('div');
 tempContainer5.classList.add('fifth_day-temp_cont','week_day-temp_cont');
 const temperature5=document.createElement('p');
 temperature5.classList.add('fifth_day-temp','week_day-temp');
-temperature5.innerHTML=`<h3>${tempFromApi5} &#176</h3>`;
+temperature5.innerHTML=`<h3>${myWeather5.temperature} &#176</h3>`;
 tempContainer5.appendChild(temperature5);
 
 //#endregion
 //#region dayName
-
-const dayNameParsed5=getDay(weather,33);
 const dayName5=document.createElement('h3');
-dayName5.innerHTML=dayNameParsed5;
+dayName5.innerHTML=myWeather5.day;
 
 
 //#endregion

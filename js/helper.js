@@ -1,10 +1,31 @@
 import { createElements } from "./app.header.js";
 
+
 export const resetWeatherContent = (city) => {
     localStorage.setItem('city', JSON.stringify(city));
     document.body.innerHTML = '';
     const header = createElements(city);
     document.body.append(header);
+    
+}
+
+export class Weather{
+    dayIndex;
+    cityName;
+    temperature;
+    humidity;
+    pressure;
+    fellsLike;
+    windSpeed;
+    windDirection;
+    day;
+    month;
+    date;
+    cloudIconId;
+
+    //  let cloudIconId=weather.list[dayIndex].weather[0].icon;
+  
+
 }
 
 export const getWindDirection=(windDegree)=>{
@@ -36,7 +57,6 @@ if(+windDegree>180 && +windDegree<270){
 if(+windDegree>270 && +windDegree<360){
     direction="North-West";
 }
-console.log(direction);
 return direction;
 }
 export const GetMonth=(date)=>{
