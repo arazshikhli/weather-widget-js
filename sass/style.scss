@@ -12,7 +12,9 @@
     color: white;
     font-family: 'Exo',sans-serif;
 }
-
+.dark_mode{
+    background-color: rgb(34, 32, 32);
+}
 @import 'blocks/header';
 @import 'blocks/day_content';
 @import 'blocks/week_content';

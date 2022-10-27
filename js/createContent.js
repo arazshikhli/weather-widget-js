@@ -33,7 +33,7 @@ otherWeatherInfo.appendChild(humidityContainer);
 
 const windSpeedContainer=ElementCreator('div','other_info-windspeed_cont','');
 const windSpeedImage=ElementCreator('img','other_info-windspeed_image','./img/icons/other_info/wind.png');
-const windSpeedInfo=ElementCreator('h3','other_info-windspeed_info',Math.floor(myWeather.WindSpeed) +" km/h");
+const windSpeedInfo=ElementCreator('h3','other_info-windspeed_info',myWeather.windSpeed+" km/h");
 windSpeedContainer.appendChild(windSpeedImage);
 windSpeedContainer.appendChild(windSpeedInfo);
 otherWeatherInfo.appendChild(windSpeedContainer);
@@ -54,7 +54,7 @@ otherWeatherInfo.appendChild(pressureContainer);
 const month=  GetMonth(weather.list[1].dt_txt);
 let dayOfWeek=getDay(weather,1);
 
-    let monthDayText=ElementCreator('p','day_content-month_name',month);
+let monthDayText=ElementCreator('p','day_content-month_name',month);
 const MonthDayTitle=ElementCreator('div','day_content-month_title','');//
 const DayTempTitle=ElementCreator('div','day_content-tem_info','');
 
@@ -98,11 +98,12 @@ function ChangeDayContent(){
          let dayIndex=1;
           weekDays.forEach(weekday=>{
             weekday.addEventListener('click',(event)=>{
-              if(dayIndex===1){
-                const dayCont=document.querySelectorAll('.week_days');
-                const firstDayClass=document.querySelector('.first_day');
-                firstDayClass.classList.add('active');
+            const weekContainers=document.querySelectorAll('week_days[data-number]');
+            for(let day in weekContainers){
+              if(day.getAttrebute===dayIndex){
+                day.classList.toggle('active');
               }
+            }
                dayIndex=+event.target.dataset.num;
                myWeather.dayIndex=dayIndex;
                myWeather.date=weather.list[myWeather.dayIndex].dt_txt;

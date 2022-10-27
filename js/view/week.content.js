@@ -59,6 +59,12 @@ ThirdDay.classList.add('third_day','week_days');
 FourthDay.classList.add('fourth_day','week_days');
 fifthDay.classList.add('fifth_day','week_days');
 
+firstDay.setAttribute('data-number',1);
+SecondDay.setAttribute('data-number',9);
+ThirdDay.setAttribute('data-number',17);
+FourthDay.setAttribute('data-number',25);
+fifthDay.setAttribute('data-number',33);
+
 //создание контента по дням в нижнем разделе - облачность(картинка),темпетартура и денб недели.
 //1//9//17/25//33
 //#region firstDayContent

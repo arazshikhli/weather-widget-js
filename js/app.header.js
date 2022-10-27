@@ -22,6 +22,8 @@ import { createWeekContent } from "./view/week.content.js";
     startButtonContainer.append(startMenuBtn);
     InnerTitleContainer.appendChild(startButtonContainer);
     const ModeButton=ElementCreator('button','mode_btn','');
+    let mode=localStorage.getItem('dark_mode');
+    console.log(mode)
     document.body.append(appContent);
     ModeButton.classList.add('mode_btn');
     TitleContent.appendChild(InnerTitleContainer);
