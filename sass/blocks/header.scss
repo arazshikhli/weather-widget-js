@@ -84,7 +84,7 @@
 // const startButtonContainer=document.createElement('div');
 // startButtonContainer.classList.add('start_btn-container');
 .input_container-start_button{
-    width: 100px;
+    width: 120px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid rgb(36, 3, 45);
@@ -97,14 +97,6 @@
     &:hover{
         background-color: aliceblue;
         color:rgb(100, 3, 124); 
-        font-size: 18px;
-        letter-spacing: 2px;
-        width: 180px;
-        height: 40px;
-        font-weight: 900;
-        text-transform:uppercase;
- 
- 
     }
 }
 .city_name{

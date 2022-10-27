@@ -8,11 +8,7 @@ const app=async ()=>{
     // const weather=await  getWeatherData(JSON.parse(localStorage.getItem('city'))||'Baku');
     // const weather = await getWeatherData(localStorage.getItem('city') || 'Москва');
     // console.log(weather);
-    createElements();
-    modeChange();
-   
+    createElements(); 
 }
-
-
-app();
-
+    app();
+ modeChange();

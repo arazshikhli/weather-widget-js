@@ -71,3 +71,7 @@ button:hover{
     letter-spacing: 2px;
 
   }
+  .active{
+    background-color: darkblue;
+    transition: all 0.7s;
+  }

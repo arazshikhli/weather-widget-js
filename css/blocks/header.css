@@ -16,33 +16,26 @@
 
 .mode_btn {
   margin: 0px 20px 20px 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
   border: 1px solid gray;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
+  font-size: 10px;
 }
 
-.dark_mode {
-  background-image: url("/img/icons/moon-6695.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.dark-mode {
+  background-color: rgb(24, 23, 23);
+  color: white;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
 }
 
-.light_mode {
-  background-image: url("/img/icons/sun-3335.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.light-mode {
+  background-color: rgb(44, 100, 145);
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
-}
-.light_mode:hover {
-  background-color: rgb(207, 246, 139);
 }
 
 .city_input {
@@ -54,10 +47,15 @@
 }
 
 .city_change-btn {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 45px;
   border-radius: 5px;
-  margin: 10px 10px 10px 2px;
+  margin: 11px 10px 10px 2px;
+  border: 1px solid grey;
+  font-family: "Times New Roman" sans-serif;
+  font-weight: 900;
+  color: crimson;
+  background-color: beige;
 }
 
 .input_container {
@@ -107,7 +105,7 @@
 }
 
 .input_container-start_button {
-  width: 100px;
+  width: 120px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgb(36, 3, 45);
@@ -117,12 +115,17 @@
   cursor: pointer;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
+  -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
+          box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.7);
 }
 .input_container-start_button:hover {
   background-color: aliceblue;
   color: rgb(100, 3, 124);
-  font-size: 18px;
-  letter-spacing: 2px;
-  width: 150px;
-  font-weight: 800;
 }
+
+.city_name {
+  color: rgb(245, 243, 243);
+  font-size: 82px;
+  margin: 10px 5px 0px 20px;
+}
+/*# sourceMappingURL=header.css.map */

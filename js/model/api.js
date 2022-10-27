@@ -13,34 +13,5 @@ catch(error){
 }
 }
 
-export class Weather{
-    cityName;
-    day;
-    temperature;
-    feelsLikeTemp;
-    humidity;
-    pressure;
-    cloudIcon;
-    cloudDescription;
-    windSpeed;
-    constructor (cityName,day,temperature,feelsLikeTemp,humidity,pressure,
-        cloudIcon,cloudDescription,windSpeed){
-            this.cityName=cityName;
-            this.day=day;
-            this.temperature=temperature;
-            this.feelsLikeTemp=feelsLikeTemp;
-            this.humidity=humidity;
-            this.pressure=pressure;
-            this.cloudIcon=cloudIcon;
-            this.cloudDescription=cloudDescription;
-            this.windSpeed=windSpeed;
-        }
-        // constructor(){
 
-        // }
-
-    getDay(){
-        
-    }
-}
 

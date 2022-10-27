@@ -1,11 +1,8 @@
 import { getWeatherData } from "./model/api.js";
 import { createContent } from "./createContent.js";
-import { ElementCreator, resetWeatherContent } from "./helper.js";
+import { ElementCreator, getWindDirection, Temperature } from "./helper.js";
 import { createWeekContent } from "./view/week.content.js";
-import { showMoreInfo } from "./view/showhmore.js";
-
-
- 
+ import { Weather } from "./helper.js";
  export const createElements=()=>{
     const appContent=ElementCreator('div','app','');
     const header=ElementCreator('div','header','');
@@ -25,6 +22,8 @@ import { showMoreInfo } from "./view/showhmore.js";
     startButtonContainer.append(startMenuBtn);
     InnerTitleContainer.appendChild(startButtonContainer);
     const ModeButton=ElementCreator('button','mode_btn','');
+    let mode=localStorage.getItem('dark_mode');
+    console.log(mode)
     document.body.append(appContent);
     ModeButton.classList.add('mode_btn');
     TitleContent.appendChild(InnerTitleContainer);
@@ -52,7 +51,7 @@ import { showMoreInfo } from "./view/showhmore.js";
       if(!cityValue){return;}
       try{
         const weather=await getWeatherData(cityValue||localStorage.getItem('city'));
-        
+
         if(weather.message){
           console.log('error');
           errorBlock.textContent="City not found";
@@ -63,22 +62,13 @@ import { showMoreInfo } from "./view/showhmore.js";
           return;
         }
         dayContent.innerHTML='';
-        
-    
-        localStorage.setItem('city', weather.city.name);
+       localStorage.setItem('city', weather.city.name);
         CityName.innerText=weather.city.name;
-        console.log(weather);
         const WeekContentBlock=createWeekContent(weather);
-        
-      //  weekContent.append(WeekContentBlock);
         appContent.appendChild(dayContent);
         let isTrue=weekContent.contains(WeekContentBlock);
         if(isTrue===false){
-       
           weekContent.appendChild(WeekContentBlock);
-        
-          ///ShowMoreBlock
-          
 
           isTrue=true;
         }
@@ -99,10 +89,5 @@ import { showMoreInfo } from "./view/showhmore.js";
       startMenuBtn.textContent="Change city";
     }  
     )
- 
-   
     return appContent;
-}
-export const CityContent=()=>{
-  
 }
